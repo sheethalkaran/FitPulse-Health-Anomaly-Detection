@@ -35,6 +35,17 @@ The project uses **three datasets** from **Fitabase**:
 
 ---
 
+## Tools Used
+
+- Python 3.x  
+- Pandas  
+- NumPy  
+- Matplotlib  
+- Seaborn  
+- Google Colab  
+
+---
+
 ## Preprocessing Workflow
 
 The preprocessing steps are implemented entirely in **Google Colab**, without any UI or frontend.
@@ -54,5 +65,13 @@ The preprocessing steps are implemented entirely in **Google Colab**, without an
 6. **Sort and clean** the final dataset.  
 7. **Save the cleaned dataset** to Google Drive.  
 8. **Visualizations**:
-   - Heart Rate trend  
+   - Heart Rate trend
+
+---
+
+## Key Observations
+
+- Heart rate data is highly granular (per second) and required resampling.  
+- Steps data is mostly at 1-minute intervals; missing minutes were filled with 0.  
+- Sleep data is daily and retained for context in analysis.
 
