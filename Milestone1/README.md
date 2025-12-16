@@ -6,18 +6,14 @@
 
 **Milestone 1** covers **data ingestion, cleaning, timestamp normalization, and consolidation** of multiple wearable fitness datasets. The objective is to generate a **clean, unified dataset** containing heart rate, physical activity, and sleep metrics, standardized to **1-minute intervals**, and prepared for subsequent analysis or machine learning stages.
 
----
 
 ## Dataset Availability
 
 Due to repository size limitations, **raw datasets are not included** in this GitHub repository.
-
 The datasets used in this milestone are **publicly available wearable fitness datasets** accessed from Kaggle:
-
 🔗 **Kaggle Dataset**  
 https://www.kaggle.com/datasets/monicamd/fit-base-data
 
----
 
 ## Datasets Used
 
@@ -38,7 +34,6 @@ This milestone utilizes **public wearable fitness data** consisting of heart rat
 - Columns: `Id`, `SleepDay`, `TotalMinutesAsleep`  
 - Contains **daily sleep duration data** per user.
 
----
 
 ## Tools and Technologies
 
@@ -48,7 +43,6 @@ This milestone utilizes **public wearable fitness data** consisting of heart rat
 - Matplotlib  
 - Google Colab  
 
----
 
 ## Preprocessing Workflow
 
@@ -71,9 +65,7 @@ All preprocessing steps are implemented entirely in **Google Colab**, without an
 8. Generate basic visualizations:
    - Heart rate trends over time  
 
----
-
-## Key Observations
+## Observations
 
 - Heart rate data is highly granular and required aggregation from seconds to minutes.  
 - Steps data is primarily minute-based, with missing intervals handled appropriately.  
