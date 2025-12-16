@@ -1,41 +1,46 @@
-# FitPulse Health Anomaly Detection - Milestone 1
+# FitPulse Health Anomaly Detection – Milestone 1
 
 ## Project Overview
 
-This project is part of the **FitPulse Health Anomaly Detection** initiative.  
-Milestone 1 focuses on **data ingestion, preprocessing, and time normalization** of fitness datasets collected from wearable devices. The goal is to generate a **clean, consolidated dataset** of heart rate, steps, and sleep data, resampled to **1-minute intervals**, ready for further analysis or anomaly detection.
+**FitPulse Health Anomaly Detection** focuses on preprocessing and structuring wearable fitness data to support future health anomaly detection tasks.
+
+**Milestone 1** covers **data ingestion, cleaning, timestamp normalization, and consolidation** of multiple wearable fitness datasets. The objective is to generate a **clean, unified dataset** containing heart rate, physical activity, and sleep metrics, standardized to **1-minute intervals**, and prepared for subsequent analysis or machine learning stages.
 
 ---
 
 ## Dataset Availability
 
-Due to file size constraints, raw datasets are **not stored in this GitHub repository**.
+Due to repository size limitations, **raw datasets are not included** in this GitHub repository.
 
-All datasets used in this project are publicly available and can be accessed from the official source:
+The datasets used in this milestone are **publicly available wearable fitness datasets** accessed from Kaggle:
 
-🔗 **Fitabase Dataset (Kaggle)**: [https://www.kaggle.com/datasets/monicamd/fit-base-data](https://www.kaggle.com/datasets/monicamd/fit-base-data)
+🔗 **Kaggle Dataset**  
+https://www.kaggle.com/datasets/monicamd/fit-base-data
 
 ---
 
 ## Datasets Used
 
-The project uses **three datasets** from **Fitabase**:
+This milestone utilizes **public wearable fitness data** consisting of heart rate, step count, and sleep information collected from multiple users.
 
-1. **Heart Rate** (`heartrate_seconds_merged.csv`)  
-   - Columns: `Id`, `Time`, `Value`  
-   - Contains heart rate measurements at **second-level intervals** per user.
+### 1. Heart Rate  
+**File:** `heartrate_seconds_merged.csv`  
+- Columns: `Id`, `Time`, `Value`  
+- Contains heart rate measurements recorded at **second-level intervals** per user.
 
-2. **Steps** (`minuteStepsNarrow_merged.csv`)  
-   - Columns: `Id`, `ActivityMinute`, `Steps`  
-   - Contains step counts at **minute-level intervals** per user.
+### 2. Steps  
+**File:** `minuteStepsNarrow_merged.csv`  
+- Columns: `Id`, `ActivityMinute`, `Steps`  
+- Records step counts at **minute-level intervals** per user.
 
-3. **Sleep** (`sleepDay_merged.csv`)  
-   - Columns: `Id`, `SleepDay`, `TotalMinutesAsleep`  
-   - Contains **daily sleep data** per user.
+### 3. Sleep  
+**File:** `sleepDay_merged.csv`  
+- Columns: `Id`, `SleepDay`, `TotalMinutesAsleep`  
+- Contains **daily sleep duration data** per user.
 
 ---
 
-## Tools Used
+## Tools and Technologies
 
 - Python 3.x  
 - Pandas  
@@ -47,30 +52,35 @@ The project uses **three datasets** from **Fitabase**:
 
 ## Preprocessing Workflow
 
-The preprocessing steps are implemented entirely in **Google Colab**, without any UI or frontend.
+All preprocessing steps are implemented entirely in **Google Colab**, without any frontend or UI components.
 
-1. **Load datasets** using Pandas (`pd.read_csv`).  
-2. **Convert timestamps** to Pandas `datetime` format in UTC.  
-3. **Handle missing/null values**:
-   - Heart Rate: forward-fill (`ffill`)  
-   - Steps: missing minutes filled with `0`  
-   - Sleep: merged at daily level and missing values retained as NaN for analytical integrity 
-4. **Resample metrics** to **1-minute intervals**:
-   - Heart Rate: average per minute  
-   - Steps: sum per minute  
-5. **Merge datasets**:
-   - Heart rate and steps aligned per **user (`Id`)** and per minute  
-   - Daily sleep merged by `Id` and date  
-6. **Sort and clean** the final dataset.  
-7. **Save the cleaned dataset** to Google Drive.  
-8. **Visualizations**:
-   - Heart Rate trend
+1. Load datasets using Pandas (`pd.read_csv`).  
+2. Convert timestamp fields to **Pandas `datetime` format** and normalize them to **UTC**.  
+3. Handle missing and null values:
+   - **Heart Rate:** forward-filled (`ffill`) to maintain temporal continuity  
+   - **Steps:** missing minute-level values filled with `0`  
+   - **Sleep:** retained as `NaN` where unavailable to preserve analytical integrity  
+4. Resample metrics to a **consistent 1-minute interval**:
+   - Heart Rate: mean value per minute  
+   - Steps: total steps per minute  
+5. Merge datasets:
+   - Heart rate and steps aligned by **user (`Id`)** and timestamp  
+   - Daily sleep data merged by **user (`Id`)** and date  
+6. Perform final sorting, validation, and consistency checks.  
+7. Save the cleaned and consolidated dataset to **Google Drive**.  
+8. Generate basic visualizations:
+   - Heart rate trends over time  
 
 ---
 
 ## Key Observations
 
-- Heart rate data is highly granular (per second) and required resampling.  
-- Steps data is mostly at 1-minute intervals; missing minutes were filled with 0.  
-- Sleep data is daily and retained for context in analysis.
+- Heart rate data is highly granular and required aggregation from seconds to minutes.  
+- Steps data is primarily minute-based, with missing intervals handled appropriately.  
+- Sleep data is recorded at a daily level and serves as contextual information for analysis.
 
+---
+
+## Acknowledgment
+
+This project was developed as part of the **Infosys Springboard Internship Program**.
