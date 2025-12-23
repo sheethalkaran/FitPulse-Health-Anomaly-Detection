@@ -1,7 +1,5 @@
-# Milestone 2: Feature Extraction and Modeling
-
-## Project: FitPulse – Health Anomaly Detection from Fitness Devices
-
+# FitPulse Health Anomaly Detection from Fitness Devices  
+## Milestone 1: Data Collection and Preprocessing
 
 ## Objective
 The objective of Milestone 2 is to extract meaningful features from preprocessed fitness data, model temporal trends, and identify behavioral patterns using statistical and machine learning techniques. This milestone provides the analytical foundation required for anomaly detection in subsequent stages of the project.
@@ -68,3 +66,4 @@ KMeans clustering was used to group users based on behavioral similarity. DBSCAN
 
 ## Conclusion
 This milestone demonstrates a structured and reproducible approach to feature extraction, trend modeling, and behavioral pattern analysis using time-series fitness data. The results form a robust analytical foundation for subsequent anomaly detection tasks.
+
